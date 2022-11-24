@@ -10,6 +10,10 @@ x2 <- -7.2618083411362
 x3 <- 7.88516466971487
 x4 <- 0.309427096741274
 
+# Area e la cuenca
+area <- 101.63
+
+
 #Modelo
 GR4J <- function(df,x1,x2,x3,x4){
   
@@ -226,6 +230,8 @@ GR4J <- function(df,x1,x2,x3,x4){
 
 # Se calcula el caudal simulado
 Qsim <- GR4J(df,x1,x2,x3,x4)
+Qsim <- Qsim/86.4*area 
+  
 df$Qsim <- Qsim
 
 write.csv(df,"salida.csv",row.names = F)
